@@ -1,3 +1,7 @@
+* {
+  padding: 0;
+  margin: 0;
+}
 .App {
   text-align: center;
 }
@@ -19,12 +23,21 @@ nav li {
   padding: 0.2em 1em;
 }
 
+.nav-bar-favorites-button {
+  display: flex;
+}
+
+nav p {
+  padding: 0 1em;
+}
+
 .pets-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   background: #ECEBE4
 }
+
 
 .pet-display {
   display: flex;
@@ -36,7 +49,9 @@ nav li {
 .pet-card-border {
   border: 0.1em solid #153B50;
 }
-
+.pet-card-border h3 {
+  padding: 1em;
+}
 .pet-display img {
   height: 20em;
   width: 20em;
@@ -48,4 +63,6 @@ nav li {
   color: #B7CE63;
   padding: 1em;
 }
+
+
 
