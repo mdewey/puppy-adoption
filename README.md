@@ -2,8 +2,8 @@
 
 
 ## Main Page
-- [ ] Style Nav Bar
-- [ ] Make Pet component contain all Pet info
+- [X] Style Nav Bar
+- [X] Make Pet component contain all Pet info
 - [ ] Store Pets to Local Storage when 'Save for later' is clicked
           localStorage.setItem('key', value)
 - [ ] Display the number of saved pets on the main page

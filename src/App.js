@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import petData from "./Data/pet.json";
+import Pet from "./Components/Pet";
 
 class App extends Component {
   constructor(props) {
@@ -21,25 +22,19 @@ class App extends Component {
     return (
       <div className="App">
         <header>
-        <h1>Pets for Adoption</h1>
-       
-        <nav>
-          <ul>
-            <li>View all pets</li>
-            <li>Potential adoptees</li>
-          </ul>
-        </nav>
+          <h1>Pets for Adoption</h1>
+
+          <nav>
+            <ul>
+              <li>View all pets</li>
+              <li>Potential adoptees</li>
+            </ul>
+          </nav>
         </header>
-        
+
         <section className="pets-list">
           {this.state.pets.map((pet, i) => {
-            return (
-              <section className="pet-display" key={i}>
-                <h3>{pet.name.$t}</h3>
-                <img src={pet.media.photos.photo[3].$t} />
-                <button>Save for Later!</button>
-              </section>
-            );
+            return <Pet pet={pet} key={i} />;
           })}
         </section>
       </div>

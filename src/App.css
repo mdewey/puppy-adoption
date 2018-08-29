@@ -22,6 +22,7 @@ nav li {
 .pets-list {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   background: #ECEBE4
 }
 
@@ -29,6 +30,11 @@ nav li {
   display: flex;
   flex-direction: column;
   padding: 1em;
+  margin: 0.1em;
+}
+
+.pet-card-border {
+  border: 0.1em solid #153B50;
 }
 
 .pet-display img {
@@ -40,5 +46,6 @@ nav li {
   font-size: 1.5em;
   background: #153B50;
   color: #B7CE63;
+  padding: 1em;
 }
 
