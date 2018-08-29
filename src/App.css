@@ -31,6 +31,17 @@ nav p {
   padding: 0 1em;
 }
 
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+
+.sticky + .pets-list {
+  padding-top: 8em;
+}
+
 .pets-list {
   display: flex;
   flex-wrap: wrap;

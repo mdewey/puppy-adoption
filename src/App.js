@@ -32,7 +32,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header>
+        <header className='sticky'>
           <h1>Pets for Adoption</h1>
 
           <nav>
