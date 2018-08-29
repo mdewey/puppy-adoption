@@ -1,7 +1,11 @@
 .App {
   text-align: center;
 }
-
+header {
+  background: #153B50;
+  color: #B7CE63;
+  padding: 1em;
+}
 nav ul {
   display: flex;
   flex-direction: row-reverse;
@@ -9,4 +13,32 @@ nav ul {
   list-style: none;
 }
 
+nav li {
+  font-size: 1.5em;
+  border: 0.1em solid #B7CE63;
+  padding: 0.2em 1em;
+}
+
+.pets-list {
+  display: flex;
+  flex-wrap: wrap;
+  background: #ECEBE4
+}
+
+.pet-display {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+}
+
+.pet-display img {
+  height: 20em;
+  width: 20em;
+}
+
+.pet-display button {
+  font-size: 1.5em;
+  background: #153B50;
+  color: #B7CE63;
+}
 
