@@ -35,7 +35,7 @@ class App extends Component {
             <section className="pet-list" key={i}>
               <header>{pet.name.$t}</header>
               <img src={pet.media.photos.photo[3].$t} />
-              <button>Save for Later! arf!</button>
+              <button>Save for Later!</button>
             </section>
           );
         })}
