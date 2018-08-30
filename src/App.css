@@ -2,11 +2,53 @@
   text-align: center;
 }
 
+.App-header {
+  height: 4em;
+  background-color: #b4ecb4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px; 
+  font-weight: bold;
+  color: #333333;
+}
+
 nav ul {
   display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: center;
   list-style: none;
+  padding: 0 0 1em 0;
+  background-color: #b4ecb4;
+  margin: 0;
+}
+
+nav ul li {
+  margin-bottom: .5em;
+}
+
+.pets {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.pet {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+}
+
+.pet>header {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.pet>img {
+  border-radius: 1em;
+  padding: 1em;
 }
 
 

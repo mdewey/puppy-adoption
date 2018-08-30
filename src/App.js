@@ -21,24 +21,28 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header>Pets for Adoption</header>
+        <section className="App-header">
+          <header>Pets for Adoption</header>
+        </section>
         {/*  */}
         <nav>
           <ul>
-            <li>View all pets</li>
-            <li>Potential adoptees</li>
+            <li>Favorited Adoptees</li>
+            <li>View All Pets</li>
           </ul>
         </nav>
         {/*  */}
+        <section className="pets">
         {this.state.pets.map((pet, i) => {
           return (
-            <section className="pet-list" key={i}>
+            <section className="pet" key={i}>
               <header>{pet.name.$t}</header>
               <img src={pet.media.photos.photo[3].$t} />
-              <button>Save for Later! arf!</button>
+              <button>Favorite {pet.name.$t}</button>
             </section>
           );
         })}
+        </section>
       </div>
     );
   }
