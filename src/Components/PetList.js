@@ -6,9 +6,7 @@ class PetList extends Component {
         return (
             <section className="pets">
                 {this.props.pets.map((pet, i) => {
-                return (
-                    <Pet pet={pet} key={i}/>
-                );
+                    return <Pet pet={pet} key={i}/>
                 })}
             </section>
         );
