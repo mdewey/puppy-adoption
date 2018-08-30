@@ -6,7 +6,7 @@
 - [X] Make Pet component contain all Pet info
 - [ ] Store Pets to Local Storage when 'Save for later' is clicked
           localStorage.setItem('key', value)
-- [X] Display the number of saved pets on the main page
+- [ ] Display the number of saved pets on the main page
           localStorage.getItem('key').split(',').length
 
 
@@ -15,4 +15,4 @@
       localStorage.getItem('key')
 
 ##Pet Details Page
-- [ ] Shows more specific details on each pet
+- [X] Shows more specific details on each pet
