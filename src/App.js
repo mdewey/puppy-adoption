@@ -1,45 +1,33 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
-import petData from "./Data/pet.json";
+import PetsList from "./Components/PetsList";
+import PetDetails from "./Components/PetDetails"
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      pets: []
-    }
-  }
-  
-
-  componentDidMount() {
-    this.setState({
-      pets: petData.petfinder.pets.pet
-    });
-    console.log(petData);
-  }
-
   render() {
     return (
-      <div className="App">
-        <header>Pets for Adoption</header>
-        {/*  */}
-        <nav>
-          <ul>
-            <li>View all pets</li>
-            <li>Potential adoptees</li>
-          </ul>
-        </nav>
-        {/*  */}
-        {this.state.pets.map((pet, i) => {
-          return (
-            <section className="pet-list" key={i}>
-              <header>{pet.name.$t}</header>
-              <img src={pet.media.photos.photo[3].$t} />
-              <button>Save for Later! arf!</button>
-            </section>
-          );
-        })}
-      </div>
+      <Router>
+        <div className="App">
+          <header className="sticky">
+            <h1>Pets for Adoption</h1>
+
+            <nav>
+              <ul>
+                <li>View all pets</li>
+                <li className="nav-bar-favorites-button">
+                  <p>Favorites</p>
+                  <p>5</p>
+                </li>
+              </ul>
+            </nav>
+          </header>
+          <Switch>
+            <Route path="/" exact component={PetsList} />
+            <Route path="/:number" exact component={PetDetails} />
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }
