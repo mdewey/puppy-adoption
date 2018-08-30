@@ -4,6 +4,10 @@ class Pet extends Component {
 
     savePetToLocalStorage = () => {
         console.log("button was clicked")
+        let _ids = localStorage.getItem('favPetId')
+        _ids = (_ids) ? _ids.split(',') : [] 
+        _ids.push(this.props.pet.id.$t)
+        localStorage.setItem('favPetId',_ids)
         
     }
     render() {
