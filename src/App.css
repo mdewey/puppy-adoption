@@ -2,11 +2,66 @@
   text-align: center;
 }
 
+h1 {
+  color: white;
+  background-color: rgb(26, 56, 66);
+  font-size: 40px;
+  font-weight: bold;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin: 0px;
+}
+
+header {
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+
+button {
+  border-radius: 5px;
+  background-color: darkgray;
+  cursor: pointer;
+  margin-bottom: 30px;
+  width: 200px;
+  height: 40px;
+  font-size: 12px;
+  font-weight: bold;
+
+}
+
+.pet-list {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+body {
+  background-color: rgb(39, 85, 100);
+}
+
 nav ul {
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-around;
   list-style: none;
+  color: white;
+  font-size: 30px;
+  background-color: rgb(26, 56, 66);
+  margin-top: 0px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-top: 1px solid silver;
+}
+
+img {
+  border-radius: 5px;
+  margin: 10px;
+  height: 400px;
+  width: 400px;
 }
 
 
