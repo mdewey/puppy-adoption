@@ -7,15 +7,26 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pets: []
+      pets: [],
+      petCount: 0
     }
   }
   
 
   componentDidMount() {
+    let _favoritePets = localStorage.getItem('favoritePets')
+    _favoritePets = _favoritePets ? JSON.parse(_favoritePets) : []
+    let _count = _favoritePets.length
     this.setState({
-      pets: petData.petfinder.pets.pet
+      pets: petData.petfinder.pets.pet,
+      petCount: _count
     });
+  }
+
+  getFavoritedPetsCount = len => {
+    this.setState({
+      petCount: len
+    })
   }
 
   render() {
@@ -30,7 +41,9 @@ class App extends Component {
             <li>View All Pets</li>
           </ul>
         </nav>
-        <PetList pets={this.state.pets}/>
+        <h3>You have favorited {this.state.petCount} pets!</h3>
+        <PetList pets={this.state.pets} getFavoritedPetsCount={this.getFavoritedPetsCount}
+        />
       </div>
     );
   }

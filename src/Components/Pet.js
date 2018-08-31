@@ -3,12 +3,14 @@ import React, { Component } from 'react';
 class Pet extends Component {
     constructor(props) {
         super(props);
+        let _favoritePets = localStorage.getItem('favoritePets')
+        _favoritePets = _favoritePets ? JSON.parse(_favoritePets) : []
+        const _isFavorited = _favoritePets.filter(_favoritePet => _favoritePet.id.$t === this.props.pet.id.$t).length
         this.state={
-            isFavorited: false
+            isFavorited: _isFavorited
         }
     }
     
-
     removePetFromFavorites = () => {
         let _favoritePets = localStorage.getItem('favoritePets')
         // Parsing the JSON string back into its original form... an array of pet objects.
@@ -19,6 +21,7 @@ class Pet extends Component {
         _favoritePets = _favoritePets.filter(_favoritePet => _favoritePet.id.$t !== this.props.pet.id.$t)
         // Turning the array of pet objects into a JSON string before setting it to local storage.
         localStorage.setItem('favoritePets', JSON.stringify(_favoritePets))
+        this.props.getFavoritedPetsCount(_favoritePets.length)
     }
 
     savePetToFavorites = () => {
@@ -26,6 +29,7 @@ class Pet extends Component {
         _favoritePets = _favoritePets ? JSON.parse(_favoritePets) : []
         _favoritePets = _favoritePets.concat(this.props.pet)
         localStorage.setItem('favoritePets', JSON.stringify(_favoritePets))
+        this.props.getFavoritedPetsCount(_favoritePets.length)
     }
 
     toggleIsFavorite = () => {
@@ -44,6 +48,15 @@ class Pet extends Component {
         this.toggleIsFavorite()
     }
 
+    favoriteOrUnfavorite = () => {
+        if (this.state.isFavorited) {
+            return <span>Unfavorite</span>
+        }
+        else {
+            return <span>Favorite</span>
+        }
+    }
+
     render() {
         return (
             <section className="pet">
@@ -56,7 +69,7 @@ class Pet extends Component {
                 />
                 <button 
                 onClick={this.favoritePetEventHandler}>
-                    Favorite {this.props.pet.name.$t}
+                    {this.favoriteOrUnfavorite()} {this.props.pet.name.$t}
                 </button>
             </section>
         );
