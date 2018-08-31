@@ -11,18 +11,21 @@ class Pet extends Component {
 
     removePetFromFavorites = () => {
         let _favoritePets = localStorage.getItem('favoritePets')
-        _favoritePets = _favoritePets ? _favoritePets.split('@@@') : []
-        console.log(_favoritePets.length)
-        _favoritePets.filter(_favoritePet => _favoritePet !== this.props.pet)
-        _favoritePets.setItem('favoritePets', _favoritePets)
+        // Parsing the JSON string back into its original form... an array of pet objects.
+        _favoritePets = _favoritePets ? JSON.parse(_favoritePets) : []
+        // Have to set _favoritePets equal to the filter function because filter returns an array.
+        // Also comparing by ID instead of the whole object because doing a deep compare on objects 
+        // is computationally expensive
+        _favoritePets = _favoritePets.filter(_favoritePet => _favoritePet.id.$t !== this.props.pet.id.$t)
+        // Turning the array of pet objects into a JSON string before setting it to local storage.
+        localStorage.setItem('favoritePets', JSON.stringify(_favoritePets))
     }
 
     savePetToFavorites = () => {
         let _favoritePets = localStorage.getItem('favoritePets')
-        _favoritePets = _favoritePets ? _favoritePets.split('@@@') : []
-        let _newPet = JSON.stringify(this.props.pet) + '@@@'
-        _favoritePets.push(_newPet)
-        localStorage.setItem('favoritePets', _favoritePets)
+        _favoritePets = _favoritePets ? JSON.parse(_favoritePets) : []
+        _favoritePets = _favoritePets.concat(this.props.pet)
+        localStorage.setItem('favoritePets', JSON.stringify(_favoritePets))
     }
 
     toggleIsFavorite = () => {
